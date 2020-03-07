@@ -194,7 +194,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block">Sameull</span>
+                    <span class="d-none d-md-inline-block"><%=userid%></span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/TeacherProfile">
@@ -248,66 +248,19 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <%for(var i=0;i<data.length;i++){%>
                         <tr>
-                          <td>1</td>
-                          <td>Ali</td>
-                          <td>Kerry</td>
-                          <td>ali@gmail.com</td>
-                          <td>123456</td>
-                          <td>3.8</td>
-                          <td>CSE</td>
-                          <td>110</td>
-                          <td><button>Approve</button></td>
-                          <td><button>Decline</button></td>
+                          <td><%=data[i].userid%></td>
+                          <td><%=data[i].fname%></td>
+                          <td><%=data[i].lname%></td>
+                          <td><%=data[i].email%></td>
+                          <td><%=data[i].contact%></td>
+                          <td><%=data[i].cgpa%></td>
+                          <td><%=data[i].dept%></td>
+                          <td><%=data[i].credit%></td>
+                          <td><a href="/TeacherStudentApproval/approve/<%=data[i].id%>"><button>Approve</button></a></td>
                         </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Ali</td>
-                          <td>Kerry</td>
-                          <td>ali@gmail.com</td>
-                          <td>123456</td>
-                          <td>3.8</td>
-                          <td>CSE</td>
-                          <td>110</td>
-                          <td><button>Approve</button></td>
-                          <td><button>Decline</button></td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Ali</td>
-                          <td>Kerry</td>
-                          <td>ali@gmail.com</td>
-                          <td>123456</td>
-                          <td>3.8</td>
-                          <td>CSE</td>
-                          <td>110</td>
-                          <td><button>Approve</button></td>
-                          <td><button>Decline</button></td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Ali</td>
-                          <td>Kerry</td>
-                          <td>ali@gmail.com</td>
-                          <td>123456</td>
-                          <td>3.8</td>
-                          <td>CSE</td>
-                          <td>110</td>
-                          <td><button>Approve</button></td>
-                          <td><button>Decline</button></td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Ali</td>
-                          <td>Kerry</td>
-                          <td>ali@gmail.com</td>
-                          <td>123456</td>
-                          <td>3.8</td>
-                          <td>CSE</td>
-                          <td>110</td>
-                          <td><button>Approve</button></td>
-                          <td><button>Decline</button></td>
-                        </tr>
+                        <%}%>
                       </tbody>
                     </table>
                   </div>

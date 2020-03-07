@@ -12,10 +12,10 @@ router.get('*', function(req, res, next){
 
 
 router.get('/',function(req,res){
-  if(req.cookies['username']!=null)
+  if(req.cookies['token']!=null)
   {
     console.log('Student Add requested!');
-    res.render('TeacherStudentReg');
+    res.render('TeacherStudentReg',{userid:req.cookies['username']});
   }else{
     res.redirect('/logout');
   }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Viwe Topic</title>
+    <title>View Topic</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -194,7 +194,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block">Sameull</span>
+                    <span class="d-none d-md-inline-block"><%=userid%></span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/TeacherProfile">
@@ -238,54 +238,26 @@
                         <tr>
                           <th scope="col" class="border-0">ID</th>
                           <th scope="col" class="border-0">Name</th>
-                          <th scope="col" class="border-0">Description</th>
+                          <!-- <th scope="col" class="border-0">Description</th> -->
                           <th scope="col" class="border-0">Domain</th>
                           <th scope="col" class="border-0">Supervisor</th>
                           <th scope="col" class="border-0">Type</th>
+                          <th scope="col" class="border-0">Action</th>
                           <!-- <th scope="col" class="border-0" colspan="2">Action</th> -->
                         </tr>
                       </thead>
                       <tbody>
+                        <%for(var i=0;i<data.length;i++){%>
                         <tr>
-                          <td>1</td>
-                          <td>Test Topic</td>
-                          <td>Nai</td>
-                          <td>Alu</td>
-                          <td>KH Adnan</td>
-                          <td>Thesis</td>
+                          <td><%=data[i].tid%></td>
+                          <td><%=data[i].name%></td>
+                         <!--  <td><%=data[i].description%></td> -->
+                          <td><%=data[i].domain%></td>
+                          <td><%=data[i].supervisor%></td>
+                          <td><%=data[i].type%></td>
+                          <td><input type="button" name="leave" value="Leave"></td>
                         </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>Test Topic</td>
-                          <td>Nai</td>
-                          <td>Alu</td>
-                          <td>KH Adnan</td>
-                          <td>Thesis</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>Test Topic</td>
-                          <td>Nai</td>
-                          <td>Alu</td>
-                          <td>KH Adnan</td>
-                          <td>Thesis</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>Test Topic</td>
-                          <td>Nai</td>
-                          <td>Alu</td>
-                          <td>KH Adnan</td>
-                          <td>Thesis</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>Test Topic</td>
-                          <td>Nai</td>
-                          <td>Alu</td>
-                          <td>KH Adnan</td>
-                          <td>Thesis</td>
-                        </tr>
+                        <%}%>
                       </tbody>
                     </table>
                   </div>

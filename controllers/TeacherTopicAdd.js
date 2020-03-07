@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var userModel = require.main.require('./models/teacher-model');
 
 
 router.get('*', function(req, res, next){
@@ -13,13 +14,40 @@ router.get('*', function(req, res, next){
 
 
 router.get('/',function(req,res){
-  if(req.cookies['username']!=null)
+  if(req.cookies['token']!=null)
   {
-    console.log('Teacher profile requested!');
-    res.render('TeacherTopicAdd');
+    userModel.getTeacherName("",function(result){
+      userModel.getDomain("",function(domain) {
+        res.render('TeacherTopicAdd',{userid:req.cookies['username'],teacher:result,dom:domain});
+      });
+    });
+    
   }else{
     res.redirect('/logout');
   }
+});
+
+
+
+router.post('/',function(req,res){
+  var data ={
+    topicName : req.body.topicName,
+    type : req.body.type,
+    domain : req.body.domain,
+    supervisor : req.body.supervisor,
+    desc : req.body.topicDes
+  };
+
+  userModel.addTopic(data,function(status){
+    if (status) {
+      res.redirect('/TeacherViewTopic');
+    }
+    else
+    {
+      res.redirect('/TeacherTopicAdd');
+    }
+  });
+
 });
 
 module.exports = router;
