@@ -64,12 +64,19 @@ app.use('/AdminDomainAdd',addDomain);
 app.use('/AdminDomainDetails',domainlist); 
 app.use('/AdminUploadFile',uploadFile);
 //app.use('/AdminTeacherUpdate',updateTeacher);
+//app.use(express.static('upload/student'));
 
 
 //routes
 app.get('/', function(req, res){
-	res.render('index');
+	res.render('views/login');
 });
+
+/*app.get('/upload/student', function(req, res){
+	//var fileName = req.params.file;
+
+	res.download('./1.pdf');
+});*/
 
 //server startup
 app.listen(1000, function(){

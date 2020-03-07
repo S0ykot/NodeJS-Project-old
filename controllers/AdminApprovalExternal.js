@@ -24,4 +24,25 @@ router.get('/', function(req, res){
 })
 
 
+router.get('/AdminApprovalExternalAppCon/:id', function(req, res){
+	
+	groupModel.getPendingExternalByID(req.params.id, function(result){
+		//console.log(result);
+		res.render('AdminApprovalExternalAppCon', {penExternal: result[0]});
+	});
+});
+
+router.post('/AdminApprovalExternalAppCon/:id', function(req, res){
+	console.log(req.params.id);
+	groupModel.makeActiveGroup(req.params.id, function(status){
+		if(status){
+			console.log(status);
+			res.redirect('/AdminApprovalExternal');
+		}else{
+			res.redirect('/AdminApprovalExternalAppCon/'+req.params.id);
+		}
+	});
+});
+
+
 module.exports = router;

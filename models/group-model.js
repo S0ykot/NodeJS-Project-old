@@ -32,5 +32,22 @@ module.exports ={
 		});
 	},
 
-	
+	getPendingExternalByID:function(id, callback){
+		var sql = "SELECT DISTINCT(research_group.group_id), topic.name, topic.supervisor,research_group.external,research_group.status FROM research_group,topic where research_group.tid=topic.tid and group_id=?";
+		db.getResult(sql, [id], function(results){
+			
+			callback(results);
+		});
+	},
+
+	makeActiveGroup: function(id, callback){
+		var sql = "update research_group set status = 'active' where group_id=?";
+		db.execute(sql, [id], function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
 }
