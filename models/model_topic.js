@@ -2,7 +2,7 @@ var db = require('./db');
 
 module.exports ={
 	getById: function(id, callback){
-		var sql = "select * from topic where id=?";
+		var sql = "select * from topic where tid=?";
 		db.getResult(sql, [id], function(result){
 
 			if(result.length > 0){

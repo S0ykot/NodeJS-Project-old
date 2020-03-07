@@ -237,14 +237,14 @@
                       <tbody>
                        <% for(var i=0; i < user.length; i++){ %> 
                     <tr>
-                      <td  width="5px"><%=user[i].id%></td>
+                      <td  width="5px"><%=user[i].tid%></td>
                       <td width="400px"><%=user[i].name%></td>
                       <td width="400px"><%=user[i].description%></td>
                       <td width="5px"><%=user[i].domain%></td>
                       <td width="5px"><%=user[i].supervisor%></td>
                       <td  width="5px"><%=user[i].type%></td>
                       <td width="250px">
-                        <button class="btn btn-info" value="<%=user[i].id%>" onclick="goTo(this.value)"><i class="fas fa-eye" style="margin-right: 5px;margin-left: -5px"></i>Details</button> | 
+                        <button class="btn btn-info" value="<%=user[i].tid%>" onclick="goTo(this.value)"><i class="fas fa-eye" style="margin-right: 5px;margin-left: -5px"></i>Details</button> | 
                         <button class="btn btn-success"><i class="fas fa-hand-pointer" style="margin-right: 5px;margin-left: -5px"></i>Apply</button> 
                       </td>
                    </tr>

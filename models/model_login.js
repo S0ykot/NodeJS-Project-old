@@ -23,8 +23,8 @@ module.exports ={
 		});
 	},
 	insert: function(user, callback){
-		var sql = "INSERT INTO login (`id`, `userid`, `password`) VALUES (?,?,?)";
-		db.execute(sql,[null,user.userid,'1234'], function(status){
+		var sql = "INSERT INTO login (`id`, `userid`, `password`, `role`) VALUES (?,?,?,?)";
+		db.execute(sql,[null,user.userid,'1234','student'], function(status){
 			if(status){
 				callback(true);
 			}else{

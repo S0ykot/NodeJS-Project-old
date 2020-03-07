@@ -33,7 +33,7 @@ module.exports ={
 		});
 	},
 	insert: function(user, callback){
-		var sql = "INSERT INTO students (`id`, `userid`, `fname`, `lname`, `email`, `contact`, `dept`,`credit`, `cgpa`, ) VALUES (?,?,?,?,?,?,?,?,?)";
+		var sql = "INSERT INTO students (`id`, `userid`, `fname`, `lname`, `email`, `contact`, `dept`,`credit`, `cgpa`, `regDate`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		db.execute(sql,['',user.userid,user.fname,user.lname,user.email,user.contact,user.dept,user.credit,user.cgpa,user.regDate,user.status], function(status){
 			if(status){
 				callback(true);

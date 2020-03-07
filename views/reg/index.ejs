@@ -8,6 +8,9 @@
 	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/css/main.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -22,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -38,7 +42,7 @@
 					</span>
 				</div>
 
-				<form class="login101-form validate-form" method="post">
+				<form class="login101-form validate-form" method="post" id="EmployeeForm" role="form" enctype="multipart/form-data">
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Academic Id is required">
 						<input class="input100" type="text" name="userid" placeholder="Academic ID">
 						<span class="focus-input100"></span>
@@ -78,9 +82,17 @@
 						<input class="input100" type="text" name="credit" placeholder="Credit Completed (After This Semester)">
 						<span class="focus-input100"></span>
 					</div>
-
-					
-
+                        <div class="panel panel-info"> 
+                            <div class="panel-body" >
+                                     
+                                    <div class="form-group">
+                                        <label for="file" class="col-md-3 control-label txt1">Upload Document</label>
+                                        <div class="col-md-9">
+                                            <input type="file" class="form-control" name="file" required>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
 					<div id="login100-form-Btn">
 						<button class="login101-form-btn">
 							Sign Up
@@ -97,6 +109,8 @@
 		</div>
 	</div>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
