@@ -1,6 +1,7 @@
 var express = require('express');
 var multer = require('multer');
 var path = require('path');
+const model_files= require.main.require('./models/model_files');
 var router = express.Router();
 
 router.use(express.static(__dirname+'./public'));
@@ -52,14 +53,20 @@ router.get('/',function(req,res){
 router.post('/',upload,function(req,res,next){
 	if(req.cookies['username']!=null)
 	{
-		var success = req.file.filename+' Uploaded Successfully';
-		var data={
-		name: req.cookies['username'],
-		success:success
-		}
-		console.log('upload page requested!');
-	
-		res.render('upload/index',data);
+		model_files.insert({userid: req.cookies['username'], file: req.file.filename},function(results){
+			if(results){
+				var success = req.file.filename+' Uploaded Successfully';
+				var data={
+				name: req.cookies['username'],
+				success:success
+				}
+				console.log('upload page requested!');
+				res.render('upload/index',data);
+			}else{
+				res.redirect('/upload');
+			}
+		});
+		
 	}else{
 		res.redirect('/logout');
 	}
