@@ -221,7 +221,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Topic Delete Confirmation</h3>
+                <h3 class="page-title">External Decline Confirmation</h3>
               </div>
             </div>
             <!-- End Page Header -->
@@ -244,39 +244,39 @@
                         <tbody>
 
                           <tr>
+                            <td>Group Number</td>
+                            <td><%= decExternal.group_id %></td>
+                          </tr>
+
+                          <tr>
                             <td>Topic Name</td>
-                            <td style="text-align: center;"><%= topicDel.name %></td>
+                            <td><%= decExternal.name %></td>
                           </tr>
 
                           <tr>
-                            <td>Description</td>
-                            <td style="text-align: center;"><%= topicDel.description %></td>
+                            <td>Supervisor Name</td>
+                            <td><%= decExternal.supervisor %></td>
                           </tr>
 
                           <tr>
-                            <td>Domain</td>
-                            <td><%= topicDel.domain %></td>
+                            <td>External Name</td>
+                            <td><%= decExternal.external %></td>
                           </tr>
 
                           <tr>
-                            <td>Supervisor</td>
-                            <td><%= topicDel.supervisor %></td>
+                            <td>Group Status</td>
+                            <td><%= decExternal.status %></td>
                           </tr>
 
                           <tr>
-                            <td>Type</td>
-                            <td><%= topicDel.type %></td>
-                          </tr>
-
-                          <tr>
-                            <td colspan="2"><h3 style="color: red;">Are you sure to delete?</h3></td>
+                            <td colspan="2"><h3 style="color: red;">Are you sure to decline?</h3></td>
                           </tr>
 
                           <tr>
                             <td colspan="2">
-                            	<input type="submit" name="submit" value="Delete">
-                            	&emsp;&emsp;&emsp;&emsp;
-                            	<a href="/AdminTopicDetails"><input type="button" name="cancel" value="Cancel"></a>
+                              <input type="submit" name="submit" value="Decline">
+                              &emsp;&emsp;&emsp;&emsp;
+                              <a href="/AdminApprovalExternal"><input type="button" name="cancel" value="Cancel"></a>
                             </td>
                           </tr>
                         </tbody>

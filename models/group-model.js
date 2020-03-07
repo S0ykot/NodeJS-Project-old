@@ -50,4 +50,15 @@ module.exports ={
 			}
 		});
 	},
+
+	makeWaitingGroup: function(id, callback){
+		var sql = "update research_group set status = 'pending' where group_id=?";
+		db.execute(sql, [id], function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
+			}
+		});
+	},
 }

@@ -44,5 +44,25 @@ router.post('/AdminApprovalExternalAppCon/:id', function(req, res){
 	});
 });
 
+router.get('/AdminApprovalExternalDecCon/:id', function(req, res){
+	
+	groupModel.getPendingExternalByID(req.params.id, function(result){
+		//console.log(result);
+		res.render('AdminApprovalExternalDecCon', {decExternal: result[0]});
+	});
+});
+
+router.post('/AdminApprovalExternalDecCon/:id', function(req, res){
+	console.log(req.params.id);
+	groupModel.makeWaitingGroup(req.params.id, function(status){
+		if(status){
+			console.log(status);
+			res.redirect('/AdminApprovalExternal');
+		}else{
+			res.redirect('/AdminApprovalExternalDecCon/'+req.params.id);
+		}
+	});
+});
+
 
 module.exports = router;
