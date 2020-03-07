@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Student List</title>
+    <title>File Upload</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -165,7 +165,7 @@
                   <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
-                <li class="nav-item border-right dropdown notifications">
+                <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
@@ -199,7 +199,7 @@
                     </a>
                     <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a>
                   </div>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
@@ -230,22 +230,23 @@
 		<div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Upload Your File</div>
+					<div class="panel-title"><h5>Upload Your File</h5></div>
+					<div class="panel-title"><b style="color: red;">**Upload PDF, DOC & DOCS File Only!</b></div>
+					<div class="panel-title"><b style="color: red;">**File Max Size: 5.5MB</b></div>
 				</div>  
 				<div class="panel-body" >
-					<form action="/upload" id="EmployeeForm" class="form-horizontal" method="post"  role="form" enctype="multipart/form-data">
+					<form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="file" class="col-md-3 control-label">Upload File
 							</label>
 							<div class="col-md-9">
+			              		<h6 style="color: red;"><%= typeof msg != 'undefined' ? msg : '' %></h6>
 								<input type="file" class="form-control" name="file" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-md-offset-3 col-md-9">
 								<input type="submit" name="submit" value="Upload" class="btn btn-accent">  
-								<button style="background-color: red; border-color: red" class="btn btn-accent" class="goHome">Go Home
-								</button>
 							</div>
 						</div>
 					</form>
