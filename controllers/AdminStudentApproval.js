@@ -3,6 +3,7 @@ var router 					= express.Router();
 var studentModel   			= require.main.require('./models/student-model');
 var userModel   			= require.main.require('./models/user-model');
 var verificationModel   	= require.main.require('./models/verification-model');
+var download 				= require('download-file')
 
 
 router.get('*', function(req, res, next){
@@ -92,6 +93,24 @@ router.post('/AdminStudentDeclineCon/:id', function(req, res){
 		}
 	});
 });
+
+/*router.get('/upload/student/:id', function(req, res){
+	var download = require('download-file')
+ 
+	var url = "http://localhost:1000/AdminStudentApproval/upload/student/1.pdf"
+	 
+	var options = {
+	    directory: "./upload/student/",
+	    filename: "1.pdf"
+	}
+	 
+	download(url, options, function(err){
+	    if (err){
+	    	console.log(err);
+	    }
+	}) 
+	
+});*/
 
 
 module.exports = router;

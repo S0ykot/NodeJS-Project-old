@@ -28,7 +28,7 @@ var sysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 const storage = multer.diskStorage({
   destination: './upload/admin/',
   filename: function(req, file, cb){
-    cb(null,path.basename(file.originalname,path.extname(file.originalname)) + '==' + req.cookies['username'] + '--' + sysDate + path.extname(file.originalname));
+    cb(null,path.basename(file.originalname,path.extname(file.originalname)) + '__' + req.cookies['username'] + '__' + sysDate + path.extname(file.originalname));
   }
 });
 
