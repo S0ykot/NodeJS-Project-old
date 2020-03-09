@@ -23,4 +23,20 @@ router.get('/',function(req,res){
   }
 });
 
+
+router.get('/approve/:id',function(req,res){
+
+  userModel.approveStudent(req.params.id,function(status) {
+    if (status) {
+      res.redirect('/TeacherStudentApproval');
+    }
+    else
+    {
+      res.send('Something Wrong');
+    }
+  });
+});
+
+
+
 module.exports = router;

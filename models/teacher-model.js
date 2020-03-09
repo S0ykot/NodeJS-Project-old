@@ -94,6 +94,18 @@ module.exports = {
 				callback(false);
 			}
 		});
+	},
+	approveStudent : function(id,callback) {
+		var sql = "UPDATE students SET status='active' where id="+id;
+		db.execute(sql,function(status) {
+			if (status) {
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
 	}
 }
 
