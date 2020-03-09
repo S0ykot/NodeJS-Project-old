@@ -19,7 +19,6 @@ router.post('/', function(req, res){
 		if (status) {
 			res.cookie('username', req.body.uname);
 			res.cookie('token', md5(req.body.password));
-			console.log('Checking worked');
 			res.redirect('/TeacherHome');
 		}
 		else

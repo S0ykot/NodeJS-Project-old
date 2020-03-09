@@ -4,7 +4,7 @@ var db = require('./db');
 
 module.exports = {
 	loginValidate: function(user, callback){
-		var sql = "select * from login where userid='"+user.username+"' and password='"+user.password+"'";
+		var sql = "select * from login where userid='"+user.username+"' and password='"+user.password+"' and role='teacher'";
 		db.getResult(sql, function(result){
 			if(result.length > 0){
 				callback(true);
@@ -39,7 +39,7 @@ module.exports = {
 	},
 	
 	allTopic : function(data, callback){
-		var sql = "select * from topic";
+		var sql = "select * from topic where userid='"+data+"'";
 		db.getResult(sql, function(result){
 				callback(result);
 		});
@@ -69,14 +69,31 @@ module.exports = {
 			{
 				callback(false);
 			}
-		})
+		});
 	},
 	getDomain : function(data,callback) {
 		var sql = "select * from domain";
 		db.getResult(sql, function(result){
 				callback(result);		
 		});
+	},
+	groupStudent : function(data,callback) {
+		var sql = "select * from domain";
+		db.getResult(sql, function(result){
+				callback(result);		
+		});
+	},
+	updateProfile : function(data,callback) {
+		var sql = "UPDATE teachers SET fname='"+data.fname+"',lname='"+data.lname+"',email='"+data.email+"',contact='"+data.contact+"' where userid='"+data.userid+"'";
+		db.execute(sql,function(status) {
+			if (status) {
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
 	}
-	
 }
 

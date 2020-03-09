@@ -15,7 +15,7 @@ router.get('*', function(req, res, next){
 router.get('/',function(req,res){
   if(req.cookies['username']!=null)
   {
-    userModel.allTopic("",function(result) {
+    userModel.allTopic(req.cookies['username'],function(result) {
       res.render('TeacherViewTopic',{data:result,userid:req.cookies['username']});
     });
   }else{

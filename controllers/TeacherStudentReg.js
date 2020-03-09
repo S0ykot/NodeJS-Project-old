@@ -21,4 +21,17 @@ router.get('/',function(req,res){
   }
 });
 
+
+/*router.get('/',function(req,res){
+  if(req.cookies['token']!=null)
+  {
+    console.log('Student Add requested!');
+    res.render('TeacherStudentReg',{userid:req.cookies['username']});
+  }else{
+    res.redirect('/logout');
+  }
+});
+
+*/
+
 module.exports = router;

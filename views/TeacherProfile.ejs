@@ -76,7 +76,7 @@
               </a>
             </nav>
           </div>
-          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+          <form method="POST" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
             <div class="input-group input-group-seamless ml-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -162,7 +162,7 @@
           <div class="main-navbar sticky-top bg-white">
             <!-- Main Navbar -->
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+              <form class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
@@ -231,13 +231,16 @@
               </nav>
             </nav>
           </div>
+
           <!-- / .main-navbar -->
-          <div class="alert alert-success alert-dismissible fade show mb-0" role="alert" hidden>
+
+          <!-- <div class="alert alert-success alert-dismissible fade show mb-0" role="alert" hidden>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
             <i class="fa fa-check mx-2"></i>
-            <strong>Success!</strong> Your profile has been updated! </div>
+            <strong>Success!</strong> Your profile has been updated! </div>   -->
+
           <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
@@ -285,22 +288,22 @@
                     <li class="list-group-item p-3">
                       <div class="row">
                         <div class="col">
-                          <form>
+                          <form method="POST">
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="feFirstName">First Name</label>
-                                <input type="text" class="form-control" id="feFirstName" placeholder="First Name" value="<%=details.fname%>"> </div>
+                                <input type="text" class="form-control" name="fname" placeholder="First Name" value="<%=details.fname%>"> </div>
                               <div class="form-group col-md-6">
-                                <label for="feLastName">Last Name</label>
-                                <input type="text" class="form-control" id="feLastName" placeholder="Last Name" value="<%=details.lname%>"> </div>
+                                <label for="LastName">Last Name</label>
+                                <input type="text" class="form-control" name="lname" placeholder="Last Name" value="<%=details.lname%>"> </div>
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="feEmailAddress">Email</label>
-                                <input type="email" class="form-control" id="feEmailAddress" placeholder="Email" value="<%=details.email%>"> </div>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="<%=details.email%>"> </div>
                               <div class="form-group col-md-6">
                                 <label for="fePassword">Password</label>
-                                <input type="password" class="form-control" id="fePassword" placeholder="Password"> </div>
+                                <input type="password" class="form-control" name="password" placeholder="Password"> </div>
                             </div>
                             <div class="form-group">
                               <label for="feInputAddress">Register Date</label>
@@ -308,10 +311,10 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="feInputCity">Contact</label>
-                                <input type="text" class="form-control" id="feInputCity" value="<%=details.contact%>"> </div>
+                                <input type="text" class="form-control" name="contact" value="<%=details.contact%>"> </div>
                               <div class="form-group col-md-4">
                                 <label for="feInputState">UserID</label>
-                                <input type="text" class="form-control" id="feInputCity" value="<%=details.userid%>" disabled>
+                                <input type="text" class="form-control" name="userid" value="<%=details.userid%>" disabled>
                                 <!-- <select id="feInputState" class="form-control">
                                   <option selected>Choose...</option>
                                   <option>...</option>
@@ -319,7 +322,7 @@
                               </div>
                               <div class="form-group col-md-2">
                                 <label for="inputZip">Department</label>
-                                <input type="text" class="form-control" id="inputZip" value="<%=details.dept%>" disabled> </div>
+                                <input type="text" class="form-control" name="dept" value="<%=details.dept%>" disabled> </div>
                             </div>
                             <div class="form-row">
                               <!-- <div class="form-group col-md-12">
