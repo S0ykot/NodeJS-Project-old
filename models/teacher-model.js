@@ -106,6 +106,18 @@ module.exports = {
 				callback(false);
 			}
 		});
+	},
+	regStudent : function(data,callback){
+		var sql = "insert into students values (null,'"+data.userid+"','"+data.fname+"','"+data.lname+"','"+data.email+"','"+data.contact+"','"+data.dept+"','"+data.credit+"','"+data.cgpa+"','"+data.regDate+"','active')";
+		db.execute(sql,function(status) {
+			if (status) {
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
 	}
 }
 
