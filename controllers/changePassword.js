@@ -1,19 +1,41 @@
 var express = require('express');
 const model_login= require.main.require('./models/model_login');
+const{check, validationResult}=require('express-validator/check');
+const{matchedData, sanitizeBody}=require('express-validator/filter');
 var router = express.Router();
 
-
-router.get('/',function(req,res){
+router.get('*',function(req,res,next){
+	if(req.cookies['username']!=null){
+		next();
+	}else{
+		res.redirect('/login');
+	}
+});
+router.get('/',
+	[check('opass','Old Password is Empty').isEmpty(),
+	check('npass','New Password is Empty').isEmpty(),
+	check('cnpass','Confirm Password is Empty').isEmpty(),
+	],function(req,res){
 	if(req.cookies['username']!=null)
 	{
+		var errors = validationResult(req);
+		var data=matchedData(req);
 		console.log('changePassword page requested!');
-		res.render('changePassword/index',{userid:req.cookies['username']});
+		res.render('changePassword/index',{userid:req.cookies['username'], error:errors.mapped()});
 	}else{
 		res.redirect('/logout');
 	}
 });
 
-router.post('/',function(req,res){
+router.post('/',
+	[check('opass','Old Password is Empty').not().isEmpty(),
+	check('npass','New Password is Empty').not().isEmpty(),
+	check('cnpass').custom((value,{req})=>{
+		if(value!=req.body.npass){
+			throw new Error('Confirm Password Does not Matched');
+		}
+	})
+	],function(req,res){
 	if(req.cookies['username']!=null)
 	{	
 		var user={
@@ -24,6 +46,8 @@ router.post('/',function(req,res){
 		console.log('changePassword page requested!');
 		model_login.getById(req.cookies['username'],function(results)
 		{
+			var errors = validationResult(req);
+			var data=matchedData(req);
 			console.log(results);
 			if(user.oldPass==results.password)
 			{
@@ -37,13 +61,13 @@ router.post('/',function(req,res){
 						}
 						else
 						{
-							res.redirect('/cngPass');
+							res.render('changePassword/index',{userid:req.cookies['username'], error:errors.mapped()});
 						}
 					});
 				}
 				else
 				{
-					res.redirect('/cngPass');
+					res.render('changePassword/index',{userid:req.cookies['username'], error:errors.mapped()});
 				}
 			}
 			else

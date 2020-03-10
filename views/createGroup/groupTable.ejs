@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Group Table</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
@@ -86,7 +86,7 @@
                  
                 </div>
               </div>
-              <input class="navbar-search form-control" type="text"  aria-label="Search"> </div>
+              <input class="navbar-search form-control" type="text" aria-label="Search"> </div>
           </form>
           <div class="nav-wrapper">
             <ul class="nav flex-column">
@@ -144,7 +144,7 @@
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
-                     
+                      
                     </div>
                   </div>
                   <input class="navbar-search form-control" type="text"  aria-label="Search"> </div>
@@ -210,7 +210,7 @@
               <div class="page-header row no-gutters py-4" style="margin-left: 10px">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Available Topics</h3>
+                <h3 class="page-title">Groups</h3>
               </div>
             </div>
             <!-- End Page Header -->
@@ -226,26 +226,25 @@
                       <thead class="bg-light">
                         <tr>
                           <th scope="col" class="border-0">#</th>
-                          <th scope="col" class="border-0">Name</th>
-                          <th scope="col" class="border-0">Description</th>
-                          <th scope="col" class="border-0">Domain</th>
-                          <th scope="col" class="border-0">Supervisor</th>
-                          <th scope="col" class="border-0">Type</th>
+                          <th scope="col" class="border-0">Group ID</th>
+                          <th scope="col" class="border-0">User ID</th>
+                          <th scope="col" class="border-0">Topic ID</th>
+                          <th scope="col" class="border-0">External</th>
+                          <th scope="col" class="border-0">Status</th>
                           <th scope="col" class="border-0">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                        <% for(var i=0; i < user.length; i++){ %> 
                     <tr>
-                      <td  width="5px"><%=user[i].tid%></td>
-                      <td width="400px"><%=user[i].name%></td>
-                      <td width="400px"><%=user[i].description%></td>
-                      <td width="5px"><%=user[i].domain%></td>
-                      <td width="5px"><%=user[i].supervisor%></td>
-                      <td  width="5px"><%=user[i].type%></td>
-                      <td width="250px">
-                        <button class="btn btn-info" value="<%=user[i].tid%>" onclick="goTo(this.value)" ><i class="fas fa-eye" style="margin-right: 5px;margin-left: -5px"></i>Details</button> | 
-                        <button class="btn btn-success" value="<%=user[i].tid%>" onclick="apply(this.value)"><i class="fas fa-hand-pointer" style="margin-right: 5px;margin-left: -5px"></i>Apply</button> 
+                      <td><%=user[i].id%></td>
+                      <td><%=user[i].group_id%></td>
+                      <td><%=user[i].userid%></td>
+                      <td><%=user[i].tid%></td>
+                      <td><%=user[i].external%></td>
+                      <td><%=user[i].status%></td>
+                      <td> 
+                        <button class="btn btn-success"><i class="fas fa-hand-pointer" style="margin-right: 5px;margin-left: -5px"></i>Apply</button> 
                       </td>
                    </tr>
                     <%}%>

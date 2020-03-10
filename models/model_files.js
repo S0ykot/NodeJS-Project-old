@@ -2,11 +2,11 @@ var db = require('./db');
 
 module.exports ={
 	getById: function(userid, callback){
-		var sql = "select * from files where id=?";
+		var sql = "select * from files where userid=?";
 		db.getResult(sql, [userid], function(result){
 
 			if(result.length > 0){
-				callback(result[0]);
+				callback(result);
 			}else{
 				callback(null);
 			}

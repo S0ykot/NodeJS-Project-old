@@ -26,7 +26,8 @@ var upload = multer({
 	storage:Storage,
 }).single('file');
 
-router.get('/',function(req,res){res.render('reg/index');});
+
+router.get('/',function(req,res){res.clearCookie('username');res.render('reg/index');});
 router.post('/',upload,function(req,res){
 	var user={
 		userid:req.body.userid,

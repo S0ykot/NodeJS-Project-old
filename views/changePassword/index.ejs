@@ -96,10 +96,10 @@
             <div class="input-group input-group-seamless ml-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="fas fa-search"></i>
+                  
                 </div>
               </div>
-              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              <input class="navbar-search form-control" type="text" aria-label="Search"> </div>
           </form>
           <div class="nav-wrapper">
             <ul class="nav flex-column">
@@ -157,10 +157,10 @@
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
-                      <i class="fas fa-search"></i>
+                      
                     </div>
                   </div>
-                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+                  <input class="navbar-search form-control" type="text"  aria-label="Search"> </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
                 <li class="nav-item dropdown">
@@ -193,6 +193,28 @@
                </div>
        
        <form class="login100-form validate-form" method="post">
+        <%if(error.cnpass){%>
+        <table width="100%">
+          <tr>
+            <td align="center"><%=error.cnpass.msg%></td>
+          </tr>
+        </table>
+        <%}%>
+        <%if(error.opass){%>
+           <table width="100%">
+          <tr>
+            <td align="center"><%=error.opass.msg%></td>
+          </tr>
+        </table>
+        <%}%>
+        <%if(error.npass){%>
+        <table width="100%">
+          <tr>
+            <td align="center"><%=error.npass.msg%></td>
+          </tr>
+        </table>
+       
+        <%}%>
          <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
            <input class="input100" type="password" name="opass" placeholder="Old password">
            <span class="focus-input100 "></span>

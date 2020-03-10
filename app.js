@@ -10,6 +10,7 @@ var logout 			= require('./controllers/logout');
 var home 			= require('./controllers/home');
 var reg 			= require('./controllers/reg');
 var topics 			= require('./controllers/topics');
+var group 			= require('./controllers/group');
 var cngPass 		= require('./controllers/changePassword');
 var research 		= require('./controllers/myResearch');
 var upload 			= require('./controllers/upload');
@@ -35,6 +36,7 @@ app.use('/download', download);
 app.use('/reg', reg);
 app.use('/topics', topics);
 app.use('/research', research);
+app.use('/group', group);
 
 
 //routes

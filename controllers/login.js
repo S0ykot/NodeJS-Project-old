@@ -3,7 +3,10 @@ const model_login= require.main.require('./models/model_login');
 const model_user= require.main.require('./models/model_user');
 var router = express.Router();
 
+
 router.get('/',function(req,res){
+	//res.cookie('username', null);
+	res.clearCookie('username');
 	console.log('login page requested!');
 	res.render('login/index');
 });

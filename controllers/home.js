@@ -4,6 +4,14 @@ var router = express.Router();
 const{check, validationResult}=require('express-validator/check');
 const{matchedData, sanitizeBody}=require('express-validator/filter');
 
+router.get('*',function(req,res,next){
+	if(req.cookies['username']!=null){
+		next();
+	}else{
+		res.redirect('/login');
+	}
+});
+
 router.get('/',
 	[check('userid','User ID is Empty').isEmpty(),
 	check('fname','First Name is Empty').isEmpty(),

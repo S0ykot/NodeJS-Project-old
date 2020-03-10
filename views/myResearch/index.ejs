@@ -85,10 +85,10 @@
             <div class="input-group input-group-seamless ml-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="fas fa-search"></i>
+                  
                 </div>
               </div>
-              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              <input class="navbar-search form-control" type="text"  aria-label="Search"> </div>
           </form>
           <div class="nav-wrapper">
             <ul class="nav flex-column">
@@ -146,10 +146,10 @@
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
-                      <i class="fas fa-search"></i>
+                      
                     </div>
                   </div>
-                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+                  <input class="navbar-search form-control" type="text"  aria-label="Search"> </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
                 <!--  <li class="nav-item border-right dropdown notifications">
@@ -216,6 +216,7 @@
             </div>
         
           <!-- / .main-navbar -->
+          <%if(result==null){%>
           <center>
                <div >
                   <div>
@@ -235,6 +236,102 @@
           </div>
         </div>
          </center>
+         <%}else{%>
+          <center>
+           <div >
+              <div>
+                <div class="card card-small mb-4 pt-3">
+                  <div class="card-header border-bottom">
+                   
+                    <h4 class="mb-0">&ensp;</h4>
+                    <h6 class="mb-0"></h6>
+                    <div style="width: 100%;margin-left: 100px; margin-left: -10px;" class="rw">
+                      <table border="0px" width="100%">
+                        <tr>
+                          <td colspan="3" height="30px"></td>
+                        </tr>
+                        <tr>
+                          <td width="100px"></td>
+                          <td width="200px">Topic Id</td>
+                          <td>:</td>
+                          <td><%=result[0].tid%></td>
+                          <td width="20px"></td>
+                        </tr>
+                        <tr>
+                          <td width="100px"></td>
+                          <td width="200px">Group ID</td>
+                          <td>:</td>
+                          <td><%=result[0].group_id%></td>
+                          <td width="20px"></td>
+                        </tr>
+                       <tr>
+                         <td width="100px"></td>
+                         <td width="200px" style="vertical-align: top">Topic Name</td>
+                         <td style="vertical-align: top">:</td>
+                         <td><%=results.name%></td>
+                         <td width="20px"></td>
+                       </tr>
+                       <tr>
+                         <td width="100px"></td>
+                         <td width="200px" style="vertical-align: top">Topic Description</td>
+                         <td style="vertical-align: top">:</td>
+                         <td><%=results.description%></td>
+                         <td width="20px"></td>
+                       </tr>
+                       <tr>
+                         <td width="100px"></td>
+                         <td width="200px">Domain</td>
+                         <td>:</td>
+                         <td><%=results.domain%></td>
+                         <td width="20px"></td>
+                       </tr>
+                       
+                       <tr>
+                         <td width="100px"></td>
+                         <td width="200px">Supervisor</td>
+                         <td>:</td>
+                         <td><%=results.supervisor%></td>
+                         <td width="20px"></td>
+                       </tr>
+                       
+                        <tr>
+                         <td width="100px"></td>
+                         <td width="200px">Type</td>
+                         <td>:</td>
+                         <td><%=results.type%></td>
+                         <td width="20px"></td>
+                       </tr>
+                        
+                        <tr >
+                          <td width="100px"></td>
+                          <td style="padding-bottom:50px" width="200px"></td>
+                          <td></td>
+                          <td></td>
+                          <td width="20px"></td>
+                        </tr>
+                        <tr>
+                          <td width="100px"></td>
+                          <td width="230px"><button class="btn btn-info" value="<%=name%>" onclick="groupDetails(this.value)">Group Details</button>&emsp;<button class="btn btn-danger goHome">Go Home</button></td>
+                          <td></td>
+                          <td></td>
+                          <td width="20px"></td>
+                        </tr>
+                         <tr>
+                          <td colspan="3" height="67px"></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+              
+            </div>
+                 </main>
+               </div>
+             </div>
+         </center>
+         <%}%>
          <!--  <center>
            <div >
               <div>
