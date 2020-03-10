@@ -53,7 +53,7 @@ router.get('/AdminTopicUpdate/:id', [
   	var errors = validationResult(req);
 	domainModel.getAllDomains(function(domainResults){
 		if(domainResults.length > 0){
-			teacherModel.getAllTeachers(function(teacherResults){
+			teacherModel.getAllActiveTeachers(function(teacherResults){
 				if(teacherResults.length > 0){
 					//console.log(domainResults);
 					//console.log(teacherResults);

@@ -22,7 +22,7 @@ router.get('/', [
 		groupModel.getAllGroupsNumbers(function(groupResults){
 			console.log(groupResults);
 			if(groupResults.length > 0){
-				teacherModel.getAllTeachers(function(teacherResults){
+				teacherModel.getAllActiveTeachers(function(teacherResults){
 					console.log(teacherResults);
 					if(teacherResults.length > 0){
 						//console.log(topicResults);

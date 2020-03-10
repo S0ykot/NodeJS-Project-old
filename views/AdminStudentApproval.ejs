@@ -12,6 +12,11 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript">
+        function download(value){
+        window.location='http://localhost:1000/AdminStudentApproval/'+value;
+}
+    </script>
   </head>
   <body class="h-100">
     <!-- <div class="color-switcher animated">
@@ -282,18 +287,19 @@
                         	<tr>
 	                            <td><%= pendingStudents[i].userid %></td>
 	                            <td>
-	                            	<a href="/AdminStudentApproval/upload/student/<%= pendingStudents[i].file %>">
+	                            	<!-- <a href="/AdminStudentApproval/upload/student/<%= pendingStudents[i].file %>">
  										<%= pendingStudents[i].file %>
-									</a>
+									</a> -->
+                                    <button style="color: DodgerBlue;font-weight: bold;border: 1px solid DodgerBlue;" value="<%=pendingStudents[i].file%>" onclick="download(this.value)">Download</button>
 	                            </td>
 	                            <td>
-	                               <a href="/AdminStudentApproval/AdminStudentProfile/<%= pendingStudents[i].userid %>">View</a>
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="/AdminStudentApproval/AdminStudentProfile/<%= pendingStudents[i].userid %>">View</a>
 	                           </td>
 	                            <td>
-	                               <a href="/AdminStudentApproval/AdminStudentApprovalCon/<%= pendingStudents[i].userid %>">Approve</a>
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="/AdminStudentApproval/AdminStudentApprovalCon/<%= pendingStudents[i].userid %>">Approve</a>
 	                           </td>
 	                            <td>
-	                               <a href="/AdminStudentApproval/AdminStudentDeclineCon/<%= pendingStudents[i].userid %>">Decline</a> 
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="/AdminStudentApproval/AdminStudentDeclineCon/<%= pendingStudents[i].userid %>">Decline</a> 
 	                            </td>
                           	</tr>
                         <% } %>

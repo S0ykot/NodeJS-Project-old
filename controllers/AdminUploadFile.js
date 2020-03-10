@@ -41,13 +41,13 @@ const upload = multer({
 }).single('file');
 
 function checkFileType(file, cb){
-  // Allowed ext
+  
   const filetypes = /pdf|doc|docs/;
-  // Check ext
+  
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
+  
   const mimetype = filetypes.test(file.mimetype);
-
+  //console.log(file.mimetype);
   if(mimetype && extname){
     return cb(null,true);
   } else {

@@ -4,6 +4,7 @@ var studentModel   			= require.main.require('./models/student-model');
 var userModel   			= require.main.require('./models/user-model');
 var verificationModel   	= require.main.require('./models/verification-model');
 var download 				= require('download-file')
+const path = require('path');
 
 
 router.get('*', function(req, res, next){
@@ -111,6 +112,19 @@ router.post('/AdminStudentDeclineCon/:id', function(req, res){
 	}) 
 	
 });*/
+
+router.get('/:file',function(req,res){
+	if(req.cookies['username']!=null)
+	{
+		  var file = req.params.file;
+		  var fileLocation = path.join('./upload/student',file);
+		  console.log(fileLocation);
+		  res.download(fileLocation, file); 
+		
+	}else{
+		res.redirect('/logout');
+	}
+});
 
 
 module.exports = router;

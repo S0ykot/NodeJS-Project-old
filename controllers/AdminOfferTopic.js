@@ -26,14 +26,14 @@ router.get('/', [
   	var errors = validationResult(req);
 	domainModel.getAllDomains(function(domainResults){
 		if(domainResults.length > 0){
-			teacherModel.getAllTeachers(function(teacherResults){
+			teacherModel.getAllActiveTeachers(function(teacherResults){
 				if(teacherResults.length > 0){
 					//console.log(domainResults);
 					//console.log(teacherResults);
 		    		typeModel.getAllResearchType(function(typeResults){
 						if(typeResults.length > 0){
-							//console.log(domainResults);
-							//console.log(teacherResults);
+							console.log(domainResults);
+							console.log(teacherResults);
 				    		res.render('AdminOfferTopic', {domainlist: domainResults,typelist: typeResults,teacherlist: teacherResults,error:errors.mapped()});
 						}else{
 							res.render('AdminOfferTopic', {domainlist: [],typelist: [],teacherlist: [],error:errors.mapped()});
