@@ -16,7 +16,7 @@ router.get('*', function(req, res, next){
 router.get('/',function(req,res){
   if(req.cookies['token']!=null)
   {
-    userModel.getTeacherName("",function(result){
+    userModel.getTeacherName(req.cookies['username'],function(result){
       userModel.getDomain("",function(domain) {
         res.render('TeacherTopicAdd',{userid:req.cookies['username'],teacher:result,dom:domain});
       });
@@ -35,7 +35,8 @@ router.post('/',function(req,res){
     type : req.body.type,
     domain : req.body.domain,
     supervisor : req.body.supervisor,
-    desc : req.body.topicDes
+    desc : req.body.topicDes,
+    userid : req.cookies['username']
   };
 
   userModel.addTopic(data,function(status){

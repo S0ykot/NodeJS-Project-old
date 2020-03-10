@@ -23,4 +23,17 @@ router.get('/',function(req,res){
   }
 });
 
+
+router.get('/leave/:id',function(req,res){
+  userModel.leaveTopic(req.params.id,function(status) {
+      if (status) {
+        res.redirect('/TeacherViewTopic');
+      }
+      else
+      {
+        res.send("Something wrong");
+      }
+  });
+});
+
 module.exports = router;

@@ -15,6 +15,10 @@ var appvStudent 	= require('./controllers/TeacherStudentApproval');
 var studentList		= require('./controllers/TeacherStudentDetails');
 var addTopic		= require('./controllers/TeacherTopicAdd');
 var viewTopic		= require('./controllers/TeacherViewTopic');
+var studSearch		= require('./controllers/studSearch');
+var studApprove		= require('./controllers/studApprove');
+var TeacherUploadFiles		= require('./controllers/TeacherUploadFiles');
+var TeacherProgressUpdate		= require('./controllers/TeacherProgressUpdate');
 
 
 
@@ -39,6 +43,10 @@ app.use('/TeacherStudentApproval',appvStudent);
 app.use('/TeacherStudentDetails',studentList);
 app.use('/TeacherTopicAdd',addTopic);
 app.use('/TeacherViewTopic',viewTopic);
+app.use('/studSearch',studSearch);
+app.use('/studApprove',studApprove);
+app.use('/TeacherUploadFiles',TeacherUploadFiles);
+app.use('/TeacherProgressUpdate',TeacherProgressUpdate);
 
 
 
@@ -49,6 +57,5 @@ app.get('/', function(req, res){
 
 //server startup
 app.listen(3000, function(){
-	console.log('server started at 3000!');
 	console.log('server started at 3000!');
 });

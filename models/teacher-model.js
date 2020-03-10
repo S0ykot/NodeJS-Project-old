@@ -20,13 +20,14 @@ module.exports = {
 		});
 	},
 	getTeacherName: function(data, callback){
-		var sql = "select fname,lname from teachers";
+		var sql = "select fname,lname from teachers where userid='"+data+"'";
 		db.getResult(sql, function(result){
 				callback(result);
 		});
 	},
 	addTopic : function(data,callback){
-		var sql = "insert into topic values (null,'"+data.topicName+"','"+data.desc+"','"+data.domain+"','"+data.supervisor+"','"+data.type+"')";
+		var sql = "insert into topic values (null,'"+data.topicName+"','"+data.desc+"','"+data.domain+"','"+data.supervisor+"','"+data.type+"','"+data.userid+"')";
+		console.log(sql);
 		db.execute(sql,function(status) {
 			if (status) {
 				callback(true);
@@ -35,7 +36,7 @@ module.exports = {
 			{
 				callback(false);
 			}
-		})
+		});
 	},
 	
 	allTopic : function(data, callback){
@@ -118,6 +119,48 @@ module.exports = {
 				callback(false);
 			}
 		});
-	}
+	},
+	searchStudent : function (key,callback) {
+		var sql = "select * from students where userid like '%"+key+"%' or fname like '%"+key+"%' or lname like '%"+key+"%' or contact like '%"+key+"%' or dept like '%"+key+"%'";
+		db.getResult(sql, function(result){
+				callback(result);		
+		});
+	},
+	allStudent : function (key,callback) {
+		var sql = "select * from students";
+		db.getResult(sql, function(result){
+				callback(result);		
+		});
+	},
+	inactiveStudentSearch : function(key,callback) {
+		var sql = "Select * from students where status='inactive' and userid like '%"+key+"%'";
+		db.getResult(sql, function(result){
+				callback(result);	
+		});
+	},
+	uploadFile : function(data,callback){
+		var sql = "insert into files values (null,'"+data.userid+"','"+data.name+"')";
+		db.execute(sql,function(status) {
+			if (status) {
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		})
+	},
+	leaveTopic: function(data,callback){
+		var sql = "update topic set userid='',supervisor='' where tid="+data;
+		db.execute(sql,function(status) {
+			if (status) {
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		})
+	},
 }
 

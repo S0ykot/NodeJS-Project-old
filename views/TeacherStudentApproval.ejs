@@ -12,6 +12,25 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript">
+      function find(){
+      var key = document.getElementById('search').value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://localhost:3000/studApprove/"+key, true);
+      xhttp.send();
+        xhttp.onreadystatechange = function() {
+          if (this.status==404) {
+            document.getElementById('test').innerHTML="";
+          }
+          else
+          {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('test').innerHTML = this.responseText;
+          }
+          }
+        };
+    }
+    </script>
   </head>
   <body class="h-100">
     <!-- <div class="color-switcher animated">
@@ -226,13 +245,16 @@
             </div>
             <!-- End Page Header -->
             <!-- Default Light Table -->
+            <div class="input-group input-group-seamless ml-3">
+              <input id="search" class="navbar-search form-control" type="text" placeholder="Search Student" aria-label="Search" onkeyup="find()"></div>
+              <br>
             <div class="row">
               <div class="col">
                 <div class="card card-small mb-4">
                   <!-- <div class="card-header border-bottom">
                     <h6 class="m-0">Active Users</h6>
                   </div> -->
-                  <div class="card-body p-0 pb-3 text-center">
+                  <div class="card-body p-0 pb-3 text-center" id="test">
                     <table class="table mb-0">
                       <thead class="bg-light">
                         <tr>

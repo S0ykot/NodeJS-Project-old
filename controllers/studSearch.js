@@ -10,10 +10,10 @@ router.get('*', function(req, res, next){
 	}
 });
 
-
-router.get('/',function(req,res){
-   userModel.allStudent("",function(result){
-      res.render('TeacherStudentDetails',{details:result});
+router.get('/:id',function(req,res){
+   var key = req.params.id;
+   userModel.searchStudent(key,function(result){
+      res.render('studSearch',{details:result});
    });
 });
 

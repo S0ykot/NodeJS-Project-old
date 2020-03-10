@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard </title>
+    <title>Upload Files </title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -215,27 +215,37 @@
               </nav>
             </nav>
           </div>
+
           <!-- / .main-navbar -->
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-
-            <h1>Welcome Home, <%= name%></h1>
-            <!-- <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-              </li>
-            </ul> -->
+            <div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" align="center">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title"><h5>Upload Your File</h5></div>
+          <div class="panel-title"><b style="color: red;">**Upload PDF, DOC & DOCS File Only!</b></div>
+          <div class="panel-title"><b style="color: red;">**File Max Size: 5.5MB</b></div>
+        </div>  
+        <div class="panel-body" >
+          <form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="file" class="col-md-3 control-label">Upload File
+              </label>
+              <div class="col-md-9">
+                        <h6 style="color: red;"><%= typeof msg != 'undefined' ? msg : '' %></h6>
+                <input type="file" class="form-control" name="file" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-9">
+                <input type="submit" name="submit" value="Upload" class="btn btn-accent">  
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+        </main>
+      </div>
+    </div>
           </footer>
         </main>
       </div>
@@ -251,3 +261,8 @@
     <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>
+
+
+
+
+

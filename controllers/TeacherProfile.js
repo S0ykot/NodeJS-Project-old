@@ -30,7 +30,7 @@ router.post('/',function(req,res){
     	userid	: req.cookies['username']
     };
     userModel.passwordMatch(req.cookies['username'],function(result) {
-    	if (result.password=data.pass) {
+    	if (result.password==data.pass) {
     		userModel.updateProfile(data,function(status) {
     			if (status) {
     				userModel.getById(req.cookies['username'],function(result){

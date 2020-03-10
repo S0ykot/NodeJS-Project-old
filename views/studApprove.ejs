@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Student ID</th>
+                          <th scope="col" class="border-0">First Name</th>
+                          <th scope="col" class="border-0">Last Name</th>
+                          <th scope="col" class="border-0">Email</th>
+                          <th scope="col" class="border-0">Phone</th>
+                          <th scope="col" class="border-0">CGPA</th>
+                          <th scope="col" class="border-0">Department</th>
+                          <th scope="col" class="border-0">Complete Credit</th>
+                          <th scope="col" class="border-0" colspan="2">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%for(var i=0;i<data.length;i++){%>
+                        <tr>
+                          <td><%=data[i].userid%></td>
+                          <td><%=data[i].fname%></td>
+                          <td><%=data[i].lname%></td>
+                          <td><%=data[i].email%></td>
+                          <td><%=data[i].contact%></td>
+                          <td><%=data[i].cgpa%></td>
+                          <td><%=data[i].dept%></td>
+                          <td><%=data[i].credit%></td>
+                          <td><a href="/TeacherStudentApproval/approve/<%=data[i].id%>"><button>Approve</button></a></td>
+                        </tr>
+                        <%}%>
+                      </tbody>
+                    </table>
+                  </div>
+</body>
+</html>

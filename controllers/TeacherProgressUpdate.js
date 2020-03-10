@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var userModel = require.main.require('./models/teacher-model');
 
 router.get('*', function(req, res, next){
 	if(req.cookies['token'] == null){
@@ -10,13 +9,9 @@ router.get('*', function(req, res, next){
 	}
 });
 
-
 router.get('/',function(req,res){
-   userModel.allStudent("",function(result){
-      res.render('TeacherStudentDetails',{details:result});
-   });
+  res.render('TeacherProgressUpdate');
 });
-
 
 
 module.exports = router;
