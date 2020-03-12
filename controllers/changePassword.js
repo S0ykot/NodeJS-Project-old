@@ -41,7 +41,8 @@ router.post('/',
 		var user={
 			oldPass: req.body.opass,
 			newPass: req.body.npass,
-			cnewPass: req.body.cnpass
+			cnewPass: req.body.cnpass,
+			userid:req.cookies['username']
 		}
 		console.log('changePassword page requested!');
 		model_login.getById(req.cookies['username'],function(results)

@@ -43,6 +43,20 @@
 				</div>
 
 				<form class="login101-form validate-form" method="post" id="EmployeeForm" role="form" enctype="multipart/form-data">
+					 <%if(msg!=null){%>
+					 <div class="panel panel-info" style="width: 100%"> 
+                            <div class="panel-body" >
+                                     
+                                    <div class="form-group" >
+                                        <div class="col-md-9" >
+                                            <center>
+                                            	<span style="color: red; padding-left: 90px">Registration Failed</span>
+                                            </center>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+					 <%}%>
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Academic Id is required">
 						<input class="input100" type="text" name="userid" placeholder="Academic ID">
 						<span class="focus-input100"></span>

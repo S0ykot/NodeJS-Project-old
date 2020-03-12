@@ -8,7 +8,7 @@ router.get('/',function(req,res){
 	//res.cookie('username', null);
 	res.clearCookie('username');
 	console.log('login page requested!');
-	res.render('login/index');
+	res.render('login/index', {msg:null});
 });
 
 router.post('/', function(req, res){
@@ -25,16 +25,19 @@ router.post('/', function(req, res){
 							res.cookie('username', req.body.userid);
 							res.redirect('/home');
 						}else{
-							res.redirect('/login');
+							res.cookie('username', req.body.userid);
+							res.render('login/index', {msg:'inactive'});
 						}
 					});
 					
 				}else{
-					res.redirect('/login');
+					res.cookie('username', req.body.userid);
+					res.render('login/index', {msg:' '});
 				}
 			});
 		}else{
-			res.redirect('/login');
+			res.cookie('username', req.body.userid);
+					res.render('login/index', {msg:' '});
 		}
 	});
 });

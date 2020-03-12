@@ -256,6 +256,14 @@
             <i class="fa fa-check mx-2"></i>
             <strong>Alert!</strong> <%=error.credit.msg%>!
           </div>
+          <%}else if(error.contact){%>
+          <div style="background-color: red" class="alert alert-success alert-dismissible fade show mb-0 btn-accent" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <i class="fa fa-check mx-2"></i>
+            <strong>Alert!</strong> <%=error.contact.msg%>!
+          </div>
           <%}else{%>
           <div class="alert alert-success alert-dismissible fade show mb-0 btn-accent" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -399,7 +407,7 @@
                                 <input type="email" class="form-control" id="feEmailAddress" name="email" placeholder="Email" value="<%= user.email%>" readonly> </div>
                               <div class="form-group col-md-6">
                                 <label for="fePassword">Contact Number</label>
-                                <input type="text" class="form-control" id="feCon" name="contact" placeholder="+88017XXXXXXXX" value="<%= user.contact%>"> </div>
+                                <input type="text" class="form-control" id="feCon" name="contact" value="<%= user.contact%>"> </div>
                             </div>
                             <%if(check==true){%>
                             <div class="form-row">

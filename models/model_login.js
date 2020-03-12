@@ -33,8 +33,8 @@ module.exports ={
 		});
 	},
 	update: function(user, callback){
-		var sql = "update login set password=?";
-		db.execute(sql,[user.newPass], function(status){
+		var sql = "update login set password=? where id=?";
+		db.execute(sql,[user.newPass,user.userid], function(status){
 			if(status){
 				callback(true);
 			}else{

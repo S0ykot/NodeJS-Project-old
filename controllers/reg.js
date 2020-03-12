@@ -27,7 +27,10 @@ var upload = multer({
 }).single('file');
 
 
-router.get('/',function(req,res){res.clearCookie('username');res.render('reg/index');});
+router.get('/',function(req,res)
+	{res.clearCookie('username');
+	res.render('reg/index',{msg:null});
+});
 router.post('/',upload,function(req,res){
 	var user={
 		userid:req.body.userid,
@@ -53,16 +56,16 @@ router.post('/',upload,function(req,res){
 						if(results){
 							res.redirect('/login');
 						}else{
-							res.redirect('/reg');
+							res.render('reg/index',{msg:' '});
 						}
 					});
 				}else{
-					res.redirect('/reg');
+					res.render('reg/index',{msg:' '});
 					//res.redirect('/reg');
 				}
 			});
 		}else{
-			res.redirect('/reg');
+			res.render('reg/index',{msg:' '});
 		}
 	});
 });

@@ -8,6 +8,9 @@
 	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/css/main.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -39,6 +42,35 @@
 				</div>
 
 				<form class="login100-form validate-form" method="post">
+					 <%if(msg==' '){%>
+					 <div class="panel panel-info" style="width: 100%"> 
+                            <div class="panel-body" >
+                                     
+                                    <div class="form-group" >
+                                        <div class="col-md-9" >
+                                            <center>
+                                            	<span style="color: red; padding-left: 90px">Invalid User Id or Password</span>
+                                            </center>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+					 <%}else if(msg=='inactive'){%>
+					  <div class="panel panel-info" style="width: 100%"> 
+                            <div class="panel-body" >
+                                     
+                                    <div class="form-group" >
+                                        <div class="col-md-9" >
+                                            <center>
+                                            	<span style="color: red; padding-left: 60px">Your Account Has Not Been Acivated Yet</span>
+                                            </center>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+					 <%}else{%>
+					 <div></div>
+					 <%}%>
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "User Id is required">
 						<input class="input100" type="text" name="userid" placeholder="User ID">
 						<span class="focus-input100"></span>
@@ -50,18 +82,7 @@
 					</div>
 
 					<div class="flex-sb-m w-full p-b-30">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
+						
 					</div>
 
 					<div id="login100-form-Btn">
